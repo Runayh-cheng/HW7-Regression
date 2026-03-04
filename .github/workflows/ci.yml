@@ -17,7 +17,7 @@ jobs:
 
       - name: Install package
         run: |
-          pip install pytest numpy pandas scikit-learn
+          pip install pytest numpy pandas scikit-learn matplotlib
       - name: Test with pytest
         run: |
           python -m pytest -vv test/*.py
