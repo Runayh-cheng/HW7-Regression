@@ -44,8 +44,8 @@ X_train, X_val, y_train, y_val = loadDataset(
 num_feats = X_train.shape[1]
 
 def test_prediction():
-	#make model 
-	model = LogisticRegressor(num_feats=num_feats)
+    #make model 
+    model = LogisticRegressor(num_feats=num_feats)
 
     bias_column = np.ones((X_val.shape[0], 1))
     X_padded = np.hstack([X_val, bias_column])
@@ -74,7 +74,7 @@ def test_prediction():
 
 
 def test_loss_function():
-	model = LogisticRegressor(num_feats=num_feats)
+    model = LogisticRegressor(num_feats=num_feats)
 
     y_true = np.array([1.0, 0.0])
 
@@ -87,12 +87,12 @@ def test_loss_function():
     loss_good = model.loss_function(y_true, y_pred_good)
     loss_bad  = model.loss_function(y_true, y_pred_bad)
 
-	assert loss_good < loss_bad, \
+    assert loss_good < loss_bad, \
         "In this example true"
 
 def test_gradient():
-	
-	model = LogisticRegressor(num_feats=num_feats)
+    
+    model = LogisticRegressor(num_feats=num_feats)
 
     # bias column
     bias_column = np.ones((X_train.shape[0], 1))
@@ -114,8 +114,8 @@ def test_gradient():
         "Taking a gradient descent step should reduce the training loss"
 
 def test_training():
-	
-	 model = LogisticRegressor(
+
+    model = LogisticRegressor(
         num_feats=num_feats,
         learning_rate=0.01,
         tol=0.001,
@@ -139,14 +139,3 @@ def test_training():
     # model improvement
     assert model.loss_hist_train[-1] < model.loss_hist_train[0], \
         "Training improved model with less loss"
-
-
-
-
-
-
-
-
-
-
-
