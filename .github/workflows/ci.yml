@@ -1,0 +1,23 @@
+# .github/workflows/app.yaml
+# from hw1
+name: Project Tests
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v2
+
+      - name: Set up Python 3.9
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.9"
+
+      - name: Install package
+        run: |
+          pip install pytest numpy pandas scikit-learn
+      - name: Test with pytest
+        run: |
+          python -m pytest -vv test/*.py
